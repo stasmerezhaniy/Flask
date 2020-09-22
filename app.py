@@ -4,9 +4,15 @@ from datetime import datetime
 from sqlalchemy import Column, Integer, Text, DateTime, String
 
 
+
+
 app = Flask(__name__)
 app.config['SQLALCHEMY_DATABASE_URI'] = 'sqlite:///posts.db'
 db = SQLAlchemy(app)
+
+
+
+
 
 
 class BlogPost(db.Model):
