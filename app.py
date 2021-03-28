@@ -4,15 +4,9 @@ from datetime import datetime
 from sqlalchemy import Column, Integer, Text, DateTime, String
 
 
-
-
 app = Flask(__name__)
 app.config['SQLALCHEMY_DATABASE_URI'] = 'sqlite:///posts.db'
 db = SQLAlchemy(app)
-
-
-
-
 
 
 class BlogPost(db.Model):
@@ -34,11 +28,6 @@ all_posts = [
 @app.route('/')
 def index():
     return render_template('index.html')
-
-
-@app.route('/home/users/<string:name>/posts/<int:id>')
-def hello(id, name):
-    return "Hello, " + name + ", your id is: " + str(id)
 
 
 @app.route('/posts', methods=['GET', 'POST'])
